@@ -1,0 +1,34 @@
+[
+ {
+  "questionId": 2,
+  "answer": "Kaminari Research"
+ },
+ {
+  "questionId": 5,
+  "answer": "https://studio.arc.io/app/c49231bf-9c51-4b97-bd09-7ea77397de3c"
+ },
+ {
+  "questionId": 6,
+  "answer": "https://arc-meter.pages.dev"
+ },
+ {
+  "questionId": 7,
+  "answer": "Contract 0x1076c9d746f27e5c2037006d8fc2f7fe6d2dd801. Example transaction (close: 0.0286 USDC paid to the provider, 0.0214 USDC refunded to the consumer): 0xc1d01b9e8c336ef7055e736895d624ce26051ba5a1bb7553e3fb359ba5232a17 - https://explorer.arc.io/tx/0xc1d01b9e8c336ef7055e736895d624ce26051ba5a1bb7553e3fb359ba5232a17. The others: deploy 0x3838c6563c9f9ed68caabdd8465d14f0f31c1cd487b8740209b030ecce870cf6, open 0x2c9131085eb2af73534c954fcf7161188cb7a9a4da9ec3795947f2f260df7f21."
+ },
+ {
+  "questionId": 8,
+  "answer": "https://github.com/kaminariouji/arc-meter"
+ },
+ {
+  "questionId": 9,
+  "answer": "https://arc-meter.pages.dev/walkthrough.mp4"
+ },
+ {
+  "questionId": 10,
+  "answer": "ArcMeter is a metered payment channel for software that pays per second. A consumer agent opens a channel with a deposit and a rate per second; the provider agent withdraws whatever has accrued at any time; the consumer closes and gets the unspent remainder back. Accrual is capped by the deposit, so a channel can never overdraw, and a second withdrawal in the same second reverts instead of paying twice.\n\nI used Arc Studio as the workspace: the contract and the 12-test Foundry suite were placed and run inside the Studio sandbox (log in media/arc-studio-test-run.txt, project at studio.arc.io/app/c49231bf-9c51-4b97-bd09-7ea77397de3c). Studio refuses to deploy to mainnet, so the deployment and the four demo transactions were signed in the builder wallet itself; every receipt was then re-read from the public Arc RPC and saved in the repo."
+ },
+ {
+  "questionId": 11,
+  "answer": "No"
+ }
+]

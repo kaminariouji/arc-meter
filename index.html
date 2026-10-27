@@ -154,19 +154,20 @@ async function refresh() {
     pub.readContract({ address: CONTRACT, abi: ABI, functionName: 'accrued', args: [currentId] }),
     pub.readContract({ address: CONTRACT, abi: ABI, functionName: 'remaining', args: [currentId] })
   ])
-  const opened = c.consumer !== '0x0000000000000000000000000000000000000000'
-  $('accrued').textContent = opened && !c.closed ? usd(acc) : '—'
-  $('consumer').textContent = opened ? c.consumer : 'no channel with this id'
-  $('provider').textContent = opened ? c.provider : '—'
-  $('rate').textContent = opened ? usd(c.ratePerSecond) + ' / sec' : '—'
-  $('deposit').textContent = opened ? usd(c.deposit) : '—'
-  $('withdrawn').textContent = opened ? usd(c.withdrawn) : '—'
+  const [consumer, provider, rate, deposit, withdrawn, , closed] = c
+  const opened = consumer !== '0x0000000000000000000000000000000000000000'
+  $('accrued').textContent = opened && !closed ? usd(acc) : '—'
+  $('consumer').textContent = opened ? consumer : 'no channel with this id'
+  $('provider').textContent = opened ? provider : '—'
+  $('rate').textContent = opened ? usd(rate) + ' / sec' : '—'
+  $('deposit').textContent = opened ? usd(deposit) : '—'
+  $('withdrawn').textContent = opened ? usd(withdrawn) : '—'
   $('remaining').textContent = opened ? usd(rem) : '—'
-  $('state').innerHTML = !opened ? '—' : (c.closed ? '<span class="bad">closed</span>' : '<span class="ok">running</span>')
+  $('state').innerHTML = !opened ? '—' : (closed ? '<span class="bad">closed</span>' : '<span class="ok">running</span>')
 
   const mine = account && account.toLowerCase()
-  $('withdraw').disabled = !(opened && !c.closed && mine && mine === c.provider.toLowerCase())
-  $('close').disabled = !(opened && !c.closed && mine && mine === c.consumer.toLowerCase())
+  $('withdraw').disabled = !(opened && !closed && mine && mine === provider.toLowerCase())
+  $('close').disabled = !(opened && !closed && mine && mine === consumer.toLowerCase())
 }
 
 async function open() {
