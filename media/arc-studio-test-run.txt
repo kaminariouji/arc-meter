@@ -1,0 +1,24 @@
+Arc Studio sandbox run — app c49231bf-9c51-4b97-bd09-7ea77397de3c
+Files: contracts/ArcMeter.sol, contracts/test/ArcMeter.t.sol, contracts/test/mocks/MockUSDC.sol
+Command run inside the sandbox: forge test -vv
+
+Compiling 8 files with Solc 0.8.28
+Solc 0.8.28 finished in 1.80s
+Compiler run successful!
+
+Ran 12 tests for contracts/test/ArcMeter.t.sol:ArcMeterTest
+[PASS] testAccruedGrowsWithTime() (gas: 149429)
+[PASS] testBadParametersRevert() (gas: 27677)
+[PASS] testClosePaysProviderAndRefundsConsumer() (gas: 159782)
+[PASS] testClosedChannelCannotBeWithdrawn() (gas: 158437)
+[PASS] testDepositExhaustionCapsAccrual() (gas: 159706)
+[PASS] testIdCannotBeReused() (gas: 144926)
+[PASS] testOnlyConsumerCanClose() (gas: 144504)
+[PASS] testOnlyProviderCanWithdraw() (gas: 145040)
+[PASS] testOpenPullsDeposit() (gas: 150244)
+[PASS] testSecondWithdrawInSameSecondReverts() (gas: 176475)
+[PASS] testTopUpExtendsRunway() (gas: 156285)
+[PASS] testWithdrawPaysProvider() (gas: 179173)
+Suite result: ok. 12 passed; 0 failed; 0 skipped; finished in 17.85ms (5.58ms CPU time)
+
+Ran 1 test suite in 63.81ms (17.85ms CPU time): 12 tests passed, 0 failed, 0 skipped (12 total tests)

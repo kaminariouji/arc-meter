@@ -1,0 +1,9 @@
+out/
+cache/
+video-raw/
+dist/
+studio-run.json
+deploy-run.json
+deploy-prompt.txt
+studio-prompt.txt
+out.txt
