@@ -36,6 +36,20 @@ close(id)                                    consumer settles the provider and r
 | ArcMeter | `0x1076c9d746f27e5c2037006d8fc2f7fe6d2dd801` |
 | Deploy tx | `0x3838c6563c9f9ed68caabdd8465d14f0f31c1cd487b8740209b030ecce870cf6` |
 
+
+## The demo, on mainnet
+
+One channel, opened and closed for real, with USDC moving through the contract:
+
+| Step | Transaction | Block |
+|---|---|---|
+| deploy | `0x3838c6563c9f9ed68caabdd8465d14f0f31c1cd487b8740209b030ecce870cf6` | 28,196,145 |
+| approve 0.05 USDC | `0xe297ddc86b065846789a6527fc3eb6def13a9dcb76df7cb27315ee18a3e7dc63` | 28,196,548 |
+| open, 0.0001 USDC/s, 0.05 USDC deposit | `0x2c9131085eb2af73534c954fcf7161188cb7a9a4da9ec3795947f2f260df7f21` | 28,196,641 |
+| close after 286 s | `0xc1d01b9e8c336ef7055e736895d624ce26051ba5a1bb7553e3fb359ba5232a17` | 28,197,206 |
+
+The close transaction pays the provider **0.0286 USDC** (286 s × 0.0001) and refunds the consumer **0.0214 USDC** in the same call. Both transfers are in the receipt.
+
 ## Verify without a block explorer
 
 `explorer.arc.io` sits behind a login, so every claim here is reproducible from the public RPC instead.
